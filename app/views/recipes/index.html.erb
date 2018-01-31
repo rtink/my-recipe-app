@@ -1,0 +1,12 @@
+<%= render 'shared/page_title', title: "showing all recipes" %>
+
+<div class="pagination justify-content-center apple_pagination">
+  <%= will_paginate %>
+</div>
+
+<!--<#%= render 'recipe', obj: @recipes %>-->
+<%= render 'recipe', @recipes %>
+
+<div class="pagination justify-content-center apple_pagination">
+  <%= will_paginate %>
+</div>

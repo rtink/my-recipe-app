@@ -6,17 +6,26 @@ html, body {
   height: 100%;
 }
 
+// change navbar background color
+.navbar-custom {
+    background-color: #ffd600;
+}
+
+// change link color
+.navbar-custom .navbar-nav .nav-item .nav-link {
+    color: #8a6821;
+}
+
 #logo {
-  
   font-size: 1.7em;
-  color: #FFC43D;
+  color: #8a6821;
   // text-transform: uppercase;
   letter-spacing: -1px;
   font-weight: bold;
 }
   
 #logo:hover {
-  color: #1B9AAA;
+  color: #0b0c0e;
   text-decoration: none;
 }  
 
@@ -26,55 +35,59 @@ html, body {
 }
 
 .dropdown-menu a:hover {
-  color: #84aca2;
+  color: #8a6821;
   text-decoration: none;
 }
 
-// .navbar-custom {
-//     background-color: #ff5500;
-// }
-// /* change the brand and text color */
-// .navbar-custom .navbar-brand,
-// .navbar-custom .navbar-text {
-//     color: rgba(255,255,255,.8);
-// }
 /* change the link color */
 .navbar-custom .navbar-nav .nav-link {
-    color: #84aca2;
+    color: #8a6821;
 }
 /* change the color of active or hovered links */
 .navbar-custom .nav-item.active .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
-    color: #1B9AAA;
+    color: #0b0c0e;
 }
 
 .center {
   text-align: center;
 }
 
-#cardHome {
-  width: 100vw;
-}
+// #cardHome {
+//   width: 100vw;
+// }
 
 .card-img {
-  background-image: asset-url('recipes.png');
-  height: 600px;
-  width: 100%;
+  background-image: asset-url('recipe1.jpg');
+  // height: 400px;
+  // width: 100%;
   background-repeat: no-repeat;
   background-position: center center;
   
-  // -webkit-background-size: contain;
-  // -moz-background-size: contain;
-  // -o-background-size: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
   background-size: 100% 100%;
-  height: 600px;
+  height: 400px;
   width: 100%;
 }
 
+.first-slide {
+  background-image: asset-url('wine1.jpg')
+}
+
+.second-slide {
+  background-image: asset-url('wine1.jpg')
+}
+
+.third-slide {
+  background-image: asset-url('wine1.jpg')
+}
+
 .h2Home {
-  color: #0b5a47;
+  color: #8a6821;
   text-align: right;
-  margin-bottom: 450px;
+  margin-bottom: 400px;
   letter-spacing: -1px;
   font-weight: bold;
 }
@@ -88,11 +101,11 @@ html, body {
 }
 
 .btn-xlarge {
-  background-color: rgba(11,90,71,0.7);
+  background-color: #ffd600;
 }
 
 .btn-xlarge:hover {
-  background-color: #0b5a47;
+  background-color: rgba(134,101,42,0.7);
   text-decoration: none;
 }  
 
@@ -111,17 +124,17 @@ html, body {
 
 footer {
   height: 3em;
-  color: #0b5a47;
-  background-color: rgba(11,90,71,0.5);
+  color: #8a6821;
+  background-color: #ffd600;
 }
 
 footer a {
-  color: #0b5a47;
+  color: #8a6821;
   text-decoration: none;
 }
 
 footer a:hover {
-  color: #1B9AAA;
+  color: #0b0c0e;
   text-decoration: none;
 }
 
