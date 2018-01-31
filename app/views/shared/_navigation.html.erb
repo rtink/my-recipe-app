@@ -11,7 +11,7 @@
         <!--<%#= link_to "Chefs", chefs_path, class: "nav-link" %>-->
       </li>
       <li class="nav-item">
-        <!--<%#= link_to "Recipes", recipes_path, class: "nav-link" %>-->
+        <%= link_to "Recipes", recipes_path, class: "nav-link" %>
       </li>
       <!--<#% if logged_in? %>-->
         <li class="nav-item">
@@ -23,7 +23,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item">
-              <!--<%#= link_to "Create a new recipe", new_recipe_path %>-->
+              <%= link_to "Create a new recipe", new_recipe_path %>
             </a>
           </div>
         </li>
