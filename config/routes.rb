@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   get 'pages/home', to: 'pages#home'
    get '/about', to: 'pages#about'
    
-   get '/recipes', to: 'recipes#index'
-   get 'recipes/:id', to: 'recipes#show', as: 'recipe'
+   resources :recipes
   
 end

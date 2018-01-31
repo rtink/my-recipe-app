@@ -5,7 +5,8 @@ class RecipesTest < ActionDispatch::IntegrationTest
   def setup
     @chef = Chef.create!(chefname: "patty", email: "patty@example.com")
     @recipe = Recipe.create(name: "vegetable sautee",
-                            description: "great vegetable sautee, add veggies and oil",
+                            description: "great vegetable sautee, add veggies and oil,
+                            cook for 20 minuets, serve delicious meal",
                             chef: @chef)
     @recipe2 = Recipe.create(name: "fried chicken",
                             description: "great fried chicken")      
@@ -31,6 +32,31 @@ class RecipesTest < ActionDispatch::IntegrationTest
     assert_match @recipe.name, response.body
     assert_match @recipe.description, response.body
     assert_match @chef.chefname, response.body
+  end
+  
+  test "create new valid recipe" do
+    get new_recipe_path
+    assert_template 'recipes/new'
+    name_of_recipe = "chicken sautee"
+    description_of_recipe = "great vegetable sautee, add veggies and oil,
+                            cook for 20 minuets, serve delicious meal"
+    assert_difference 'Recipe.count', 1 do
+      post recipes_path, params: {recipe: { name: name_of_recipe, description: description_of_recipe }}
+    end
+    follow_redirect!
+    assert_match name_of_recipe.capitalize, response.body
+    assert_match description_of_recipe, response.body
+  end
+  
+  test "reject invalid recipe submissions" do
+    get new_recipe_path
+    assert_template 'recipes/new'
+    assert_no_difference 'Recipe.count' do
+      post recipes_path, params: { recipe: { name: "", description: "" }}
+    end
+    assert_template 'recipes/new'
+    assert_select 'h2.card-title'
+    assert_select 'div.card-body'
   end
   
 end
