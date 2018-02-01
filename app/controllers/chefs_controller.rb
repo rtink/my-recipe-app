@@ -1,6 +1,10 @@
 class ChefsController < ApplicationController
   before_action :set_chef, only: [:show, :edit, :update, :destroy]
   
+  def index
+    @chefs = Chef.paginate(page: params[:page], per_page: 5)
+  end
+  
   def new
     @chef = Chef.new
   end

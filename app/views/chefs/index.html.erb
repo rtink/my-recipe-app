@@ -1,0 +1,34 @@
+<%= render 'shared/page_title', title: "showing all chefs" %>
+
+<div class='container' align='center'>
+  <div class="pagination justify-content-center apple_pagination">
+    <%= will_paginate %>
+  </div>
+  <% @chefs.each do |chef| %>
+    <ul class='listing'>
+      <div class='row'>
+          <div class="col d-flex justify-content-center card border-info mb-3">
+            <div class='justify-content-md-center card-body'>
+              <!--<li><#%= link_to gravatar_for(chef), chef_path(chef) %></li>-->
+              <li class="chef-title">
+                <%= link_to chef.chefname.capitalize, chef_path(chef) %>
+              </li>
+              <li>
+                <small>
+                  <%= pluralize(chef.recipes.count, "recipe") if chef.recipes %>
+                </small>
+              </li>
+              <li>
+                <% if logged_in? and current_chef.admin? && !chef.admin %>
+                  <%= link_to "Delete this chef", chef_path(chef), method: :delete,
+                  data: { confirm: "Are you sure you want to delete the chef and all their recipes?" } %>
+                <% end %>
+              </li>
+            </div>
+      </div>
+    </ul>
+  <% end %>
+  <div class="pagination justify-content-center apple_pagination">
+    <%= will_paginate %>
+  </div>
+</div>
