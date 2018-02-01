@@ -1,0 +1,24 @@
+<%= render 'shared/page_title', title: "Chef #{@chef.chefname.capitalize}'s profile" %>
+
+
+    <div class='row'>
+      <div class="col d-flex justify-content-center card mb-3">
+          <!--<section class='chef-info center'>-->
+          <!--  <#%= gravatar_for @chef, size: 120 %>-->
+          <!--</section>-->
+        <div class='justify-content-md-center card-body colormatch'>
+          <% if @chef.recipes.count != 0 %>
+            <h4 class="center"><%= @chef.chefname.capitalize %>'s recipes</h4>
+            <div class="pagination justify-content-center apple_pagination">
+              <%= will_paginate @chef_recipes %>
+            </div>
+            <%= render 'recipes/recipe', obj: @chef_recipes %>
+            <div class="pagination justify-content-center apple_pagination">
+              <%= will_paginate @chef_recipes %>
+            </div>
+          <% else %>
+            <h4 class="center">No recipes yet!</h4>
+          <% end %>
+        </div>
+      </div>
+    </div>
