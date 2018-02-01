@@ -1,0 +1,18 @@
+<div class='row comment-fix'>
+  <div class='col-2'>
+    <section class='chef_info center'>
+      <%= gravatar_for(comment.chef, size: 60) %>
+    </section>
+  </div>
+  <div class='col-10 card border-warning mb-3'>
+    <p><%= comment.description %></p>
+    <p>
+      <span class='quiet'>
+        <small>
+          <%= time_ago_in_words(comment.created_at) %> ago by
+          <%= comment.chef.chefname %>
+        </small>
+      </span>
+    </p>
+  </div>
+</div>

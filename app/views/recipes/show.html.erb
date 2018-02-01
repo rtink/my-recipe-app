@@ -34,3 +34,46 @@
       </div>
     </div>
 </div>
+
+<% if logged_in? %>
+  <div class='container-fluid'>
+    <div class='row justify-content-start'>
+       <div class='w-100'>
+        <%= form_for([@recipe, @comment], remote: true, :html => {class: 'form-group', role: 'form' }) do |f| %>
+    <div class='form-group row'>
+      <div class='form-control-label col-2 pl-5'>
+        <%= f.label :description, "Comment" %>
+      </div>
+      <div class='col-10 pr-5'>
+        <%= f.text_area :description, rows: 3, class: 'form-control border border-info', 
+                             placeholder: 'Enter comment here', autofocus: true %>
+      </div>
+    </div>
+    <div class='form-group'>
+      <div class='col-2 pl-5'>
+          <%= f.submit "Add Comment", class: 'btn btn-primary btn-sm btn-xlarge' %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<% end %>
+
+<% if @recipe.comments.any? %>
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <h3 class="text-center">Comments</h3>
+      <div id="comments">
+        <div id="messages">
+          <%= render partial: 'comments/comments', object: @comments %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class='row'>
+    <div class='col-8'>
+      <h5>No Comments Yet!</h5>
+    </div>
+  </div>
+<% end %>
