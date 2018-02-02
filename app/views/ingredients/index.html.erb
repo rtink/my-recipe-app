@@ -1,0 +1,32 @@
+<%= render 'shared/page_title', title: "available ingredients" %>
+
+<div class='container' align='center'>
+  <div class="pagination justify-content-center apple_pagination">
+    <%= will_paginate %>
+  </div>
+  <% @ingredients.each do |ing| %>
+    <ul class='listing'>
+      <div class='row'>
+          <div class="col d-flex justify-content-center card border-info mb-3">
+            <div class='justify-content-md-center card-body'>
+              <li class="chef-title">
+                <%= link_to ing.name.capitalize, ingredient_path(ing) %>
+              </li>
+              <li>
+                <small>
+                  <%= pluralize(ing.recipes.count, "recipe") if ing.recipes %>
+                </small>
+              </li>
+              <li>
+                <% if logged_in? and current_chef.admin? %>
+                  <%= link_to "Edit this ingredient", edit_ingredient_path(ing) %>
+                <% end %>
+              </li>
+            </div>
+      </div>
+    </ul>
+  <% end %>
+  <div class="pagination justify-content-center apple_pagination">
+    <%= will_paginate %>
+  </div>
+</div>

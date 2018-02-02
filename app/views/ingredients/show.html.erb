@@ -1,0 +1,21 @@
+<%= render 'shared/page_title', title: "#{@ingredient.name.capitalize}" %>
+
+    <div class='row'>
+      <div class="col d-flex justify-content-center card mb-3">
+          
+        <div class='justify-content-md-center card-body colormatch'>
+          <% if @ingredient.recipes.count != 0 %>
+            <h4 class="center">Recipes's containing <%= @ingredient.name.capitalize %></h4>
+            <div class="pagination justify-content-center apple_pagination">
+              <%= will_paginate @ingredient_recipes %>
+            </div>
+            <%= render 'recipes/recipe', obj: @ingredient_recipes %>
+            <div class="pagination justify-content-center apple_pagination">
+              <%= will_paginate @ingredient_recipes %>
+            </div>
+          <% else %>
+            <h4 class="center">No recipes yet!</h4>
+          <% end %>
+        </div>
+      </div>
+    </div>

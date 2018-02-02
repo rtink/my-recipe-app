@@ -33,19 +33,19 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item">
-              <%#= link_to "All Ingredients", ingredients_path %>
+              <%= link_to "All Ingredients", ingredients_path %>
             </a>
-            <!--<#% Ingredient.all.each do |ingredient| %>-->
-            <!--  <a class="dropdown-item">-->
-            <!--    <#%= link_to ingredient.name.capitalize, ingredient_path(ingredient) %>-->
-            <!--  </a>-->
-            <!--<#% end %>-->
-            <!--<#% if logged_in? && current_chef.admin? %>-->
+            <% Ingredient.all.each do |ingredient| %>
+              <a class="dropdown-item">
+                <%= link_to ingredient.name.capitalize, ingredient_path(ingredient) %>
+              </a>
+            <% end %>
+            <% if logged_in? && current_chef.admin? %>
               <div role="separator" class="dropdown-divider"></div>
                 <a class="dropdown-item">
-                  <!--<%#= link_to "New Ingredient", new_ingredient_path %>-->
+                  <%= link_to "New Ingredient", new_ingredient_path %>
                 </a>
-            <!--<#% end %>-->
+            <% end %>
           </div>
         </li>
       <% end %>
