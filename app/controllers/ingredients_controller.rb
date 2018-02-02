@@ -9,7 +9,7 @@ class IngredientsController < ApplicationController
   def create
     @ingredient = Ingredient.new(ingredient_params)
     if @ingredient.save
-      flash[:success] = "Ingredient was created"
+      flash[:warning] = "Ingredient was successfully created"
       redirect_to ingredient_path(@ingredient)
     else
       render 'new'
@@ -21,7 +21,7 @@ class IngredientsController < ApplicationController
   
   def update
     if @ingredient.update(ingredient_params)
-      flash[:success] = "Ingredient name was updated"
+      flash[:warning] = "Ingredient name was updated"
       redirect_to @ingredient
     else
       render 'edit'
@@ -29,10 +29,11 @@ class IngredientsController < ApplicationController
   end
   
   def show
-    @ingredient_recipes = @ingredient.recipes.paginate(page: params[:page], per_page: 5)
+    @ingredient_recipes = @ingredient.recipes.paginate(page: params[:page],
+              per_page: 5)
   end
   
-  def index
+  def index 
     @ingredients = Ingredient.paginate(page: params[:page], per_page: 5)
   end
   

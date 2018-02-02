@@ -2,11 +2,11 @@
 
 <div class='container'>
     <div class='row'>
-      <!--<div class='col-2'>-->
-      <!--  <section class='chef_info center'>-->
-      <!--    <#%= link_to gravatar_for(@recipe.chef), chef_path(@recipe.chef) %>-->
-      <!--  </section>-->
-      <!--</div>-->
+      <div class='col-2'>
+        <section class='chef_info center'>
+          <%= link_to gravatar_for(@recipe.chef), chef_path(@recipe.chef) %>
+        </section>
+      </div>
         <div class="col d-flex justify-content-center card border-info mb-3">
         <div class='justify-content-md-center card-body colormatch'>
           <h4 class='text-center description'><strong>Directions: </strong></h4>
@@ -29,6 +29,16 @@
                       class: "badge badge-pill badge-danger" %>
           <% end %>
              <%= link_to "Back to all Recipes", recipes_path, class: "badge badge-pill badge-info" %>
+            </div>
+            <div class="row liking">
+              <div class="pl-3 row col-8">
+                <%= link_to like_recipe_path(@recipe, like: true), method: :post do %>
+                  <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                <% end %> <%= @recipe.thumbs_up_total %> ||
+                <%= link_to like_recipe_path(@recip, like: false), method: :post do %>
+                  <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                <% end %><%= @recipe.thumbs_down_total %>
+              </div>
             </div>
         </div>
       </div>

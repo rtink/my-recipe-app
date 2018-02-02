@@ -1,11 +1,11 @@
 <div class='container'>
-  <% @recipes.each do |recipe| %>
+  <% obj.each do |recipe| %>
     <div class='row'>
-      <!--<div class='col-2'>-->
-      <!--  <section class='chef_info center'>-->
-      <!--    <#%= gravatar_for(recipe.chef, size: 120) %>-->
-      <!--  </section>-->
-      <!--</div>-->
+      <div class='col-2'>
+        <!--<section class='chef_info center'>-->
+        <!--  <#%= gravatar_for(recipe.chef, size: 120) %>-->
+        <!--</section>-->
+      </div>
         <div class="col d-flex justify-content-center card border-info mb-3">
         <div class='justify-content-md-center card-body colormatch'>
           <h4><%= link_to recipe.name.capitalize, recipe_path(recipe) %></h4>
@@ -31,6 +31,16 @@
                     class: "badge badge-pill badge-danger" %>
           </div>
           <% end %>
+          <div class="col-2 ml-auto">
+            <div class="liking">
+              <%= link_to like_recipe_path(recipe, like: true), method: :post do %>
+                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+              <% end %><%= recipe.thumbs_up_total %> ||
+              <%= link_to like_recipe_path(recipe, like: false), method: :post do %>
+                 <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+              <% end %><%= recipe.thumbs_down_total %>
+            </div>
+          </div>
         </div>
       </div>
     </div>

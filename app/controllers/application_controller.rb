@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  add_flash_types :success, :danger, :info, :warning, :notice
+  
   helper_method :current_chef, :logged_in?
   
   def current_chef
@@ -16,5 +18,4 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
-  
 end

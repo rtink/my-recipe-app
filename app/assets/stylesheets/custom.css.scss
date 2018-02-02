@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "font-awesome";
 
 html, body {
   padding: 0; 
@@ -220,6 +221,9 @@ footer a:hover {
   overflow: auto;
 }
 
+.liking {
+  padding-right: 10px;
+}
 
 .apple_pagination {
   // background: #f1f1f1;
